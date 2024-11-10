@@ -1,10 +1,9 @@
-// src/components/About.jsx
-
 import React, { useState, useEffect } from "react";
 
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  // Slideshow data
   const slides = [
     {
       id: 1,
@@ -26,6 +25,31 @@ const About = () => {
       title: "Make a Difference",
       description: "Be part of the change",
       text: "Your searches can help create a greener planet.",
+    },
+  ];
+
+  // Card data
+  const cards = [
+    {
+      image: "/img/Sampah.jpg",
+      title: "Brazil",
+      description:
+        "Planting projects in Brazil protect thousands of endangered plants and animals.",
+      bgColor: "bg-yellow-300",
+    },
+    {
+      image: "/img/pohon2.png",
+      title: "Senegal",
+      description:
+        "Planting trees in Senegal helps restore desertified land to its former fertility.",
+      bgColor: "bg-pink-200",
+    },
+    {
+      image: "/img/pohon3.png",
+      title: "Indonesia",
+      description:
+        "In Indonesia, we help restore forests on former palm oil plantations while creating alternative sources of income.",
+      bgColor: "bg-green-300",
     },
   ];
 
@@ -99,6 +123,26 @@ const About = () => {
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Cards Section */}
+      <div className="container mx-auto mt-5 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        {cards.map((card, index) => (
+          <div
+            key={index}
+            className={`rounded-xl overflow-hidden shadow-lg ${card.bgColor}`}
+          >
+            <img
+              src={card.image}
+              alt={card.title}
+              className="w-full h-52 object-cover"
+            />
+            <div className="p-6">
+              <h3 className="text-lg font-bold mb-2">{card.title}</h3>
+              <p className="text-gray-700">{card.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
