@@ -1,3 +1,4 @@
+// src/TipsList.jsx
 import React, { useState } from "react";
 
 // Dummy data tips
@@ -63,41 +64,43 @@ const TipsList = ({ isLoggedIn }) => {
 
   return (
     <div className="flex flex-col items-center p-20 bg-green-50">
-      <h2 className="text-3xl font-bold text-green-600 mb-4">
+      <h2 className="text-3xl font-bold text-green-600 mb-8">
         Green Earth Tips
       </h2>
 
       {isLoggedIn && (
-        <div className="mb-4">
-          <h3 className="text-xl font-semibold">Add a New Tip</h3>
-          <input
-            type="text"
-            placeholder="Title"
-            value={newTipTitle}
-            onChange={(e) => setNewTipTitle(e.target.value)}
-            className="border border-gray-300 rounded-md p-2 mr-2"
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            value={newTipDescription}
-            onChange={(e) => setNewTipDescription(e.target.value)}
-            className="border border-gray-300 rounded-md p-2 mr-2"
-          />
-          <button
-            onClick={handleAddTip}
-            className="bg-green-500 text-white rounded-md px-4 py-2 hover:bg-green-600"
-          >
-            Add Tip
-          </button>
+        <div className="mb-10 w-full max-w-lg">
+          <h3 className="text-2xl font-semibold mb-4">Add a New Tip</h3>
+          <div className="flex flex-col md:flex-row gap-4">
+            <input
+              type="text"
+              placeholder="Title"
+              value={newTipTitle}
+              onChange={(e) => setNewTipTitle(e.target.value)}
+              className="flex-1 border border-gray-300 rounded-md p-2"
+            />
+            <input
+              type="text"
+              placeholder="Description"
+              value={newTipDescription}
+              onChange={(e) => setNewTipDescription(e.target.value)}
+              className="flex-1 border border-gray-300 rounded-md p-2"
+            />
+            <button
+              onClick={handleAddTip}
+              className="bg-green-500 text-white rounded-md px-6 py-2 hover:bg-green-600"
+            >
+              Add Tip
+            </button>
+          </div>
         </div>
       )}
 
-      <div className="flex justify-between w-full max-w-6xl items-center">
+      <div className="flex justify-between w-full max-w-6xl items-start">
         <img
-          src="/img/pohon1.png" // Replace with your left tree image path
+          src="/img/tree.png"
           alt="Tree"
-          className="h-full w-1/4 object-cover" // Adjust to fill space
+          className="h-48 w-1/5 object-cover"
         />
 
         <div className="flex-grow mx-4">
@@ -105,14 +108,14 @@ const TipsList = ({ isLoggedIn }) => {
             <table className="min-w-full divide-y divide-gray-200">
               <thead>
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-green-600 uppercase">
+                  <th className="px-4 py-3 text-left text-sm font-medium text-green-600 uppercase">
                     Title
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-green-600 uppercase">
+                  <th className="px-4 py-3 text-left text-sm font-medium text-green-600 uppercase">
                     Description
                   </th>
                   {isLoggedIn && (
-                    <th className="px-6 py-3 text-right text-xs font-medium text-green-600 uppercase">
+                    <th className="px-4 py-3 text-right text-sm font-medium text-green-600 uppercase">
                       Actions
                     </th>
                   )}
@@ -124,7 +127,7 @@ const TipsList = ({ isLoggedIn }) => {
                     key={tip.id}
                     className="odd:bg-white even:bg-green-100 hover:bg-green-200"
                   >
-                    <td className="px-6 py-4 text-sm font-medium text-gray-800">
+                    <td className="px-4 py-4 text-sm font-medium text-gray-800">
                       {editingTip === tip.id ? (
                         <input
                           type="text"
@@ -136,7 +139,7 @@ const TipsList = ({ isLoggedIn }) => {
                         tip.title
                       )}
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-800">
+                    <td className="px-4 py-4 text-sm text-gray-800">
                       {editingTip === tip.id ? (
                         <input
                           type="text"
@@ -149,7 +152,7 @@ const TipsList = ({ isLoggedIn }) => {
                       )}
                     </td>
                     {isLoggedIn && (
-                      <td className="px-6 py-4 text-right text-sm font-medium space-x-2">
+                      <td className="px-4 py-4 text-right text-sm font-medium space-x-2">
                         {editingTip === tip.id ? (
                           <button
                             onClick={() => handleSave(tip.id)}
@@ -181,13 +184,13 @@ const TipsList = ({ isLoggedIn }) => {
         </div>
 
         <img
-          src="/img/pohon2.png" // Replace with your right tree image path
+          src="/img/bumi1.jpg"
           alt="Tree"
-          className="h-full w-1/4 object-cover" // Adjust to fill space
+          className="h-48 w-1/5 object-cover"
         />
       </div>
 
-      <p className="mt-4 text-gray-600 text-center">
+      <p className="mt-8 text-gray-600 text-center">
         Let's work together to make our planet greener!
       </p>
     </div>

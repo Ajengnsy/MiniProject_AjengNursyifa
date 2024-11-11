@@ -27,13 +27,17 @@ const Home = () => {
                 Welcome
               </span>
               <h1 className="text-3xl font-bold mb-4" data-aos="fade-up">
-                Excepteur sint occaecat cupidatat non proident
+                Green Earth
               </h1>
               <p className="text-gray-700 mb-5" data-aos="fade-up">
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia, there live the blind texts. Separated
-                they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean.
+                Far away, amidst the lush forests and vibrant ecosystems, lies a
+                world dedicated to protecting the planet. In the heart of this
+                Green Earth, nature thrives with clean air, rich soil, and
+                abundant wildlife. Separated from the chaos of pollution and
+                waste, this sanctuary embraces sustainability, where every step
+                we take supports a healthier future. Together, we nurture the
+                Earth, ensuring it remains green and vibrant for generations to
+                come.
               </p>
               <p className="mt-5" data-aos="fade-up">
                 <a
@@ -49,33 +53,41 @@ const Home = () => {
       </section>
 
       {/* Financial Report Section */}
-      <section className="flex flex-col md:flex-row items-center justify-between py-10 px-5 md:px-20 bg-gray-50">
-        {/* Text Section */}
+
+      <section className="flex flex-col md:flex-row items-center justify-between py-20 px-5 md:px-20 bg-gray-50">
+        {/* New Text Section */}
+
         <div className="md:w-1/2">
-          <h3 className="text-green-700 text-sm font-bold mb-2 uppercase">
-            Monthly Financial Report
+          <h3 className="text-green-700 text-sm font-bold mb-3 uppercase">
+            Green Earth: A Call to Action
           </h3>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ecosia’s revenue in September 2024
-          </h2>
+
           <p className="text-gray-600 mb-6">
-            We publish our financial reports every month so you can see exactly
-            how much money we made, how we spent it, and how many trees we
-            planted.
+            The vision of a "Green Earth" emphasizes the urgent need for
+            environmental stewardship. Each color in our representation
+            highlights critical issues: the{" "}
+            <span className="text-red-500">red segment</span> warns of waste
+            pollution, the{" "}
+            <span className="text-yellow-500">yellow segment</span> signifies
+            biodiversity loss, the{" "}
+            <span className="text-blue-500">blue segment</span> reflects water
+            pollution, and the{" "}
+            <span className="text-green-500">green segment</span> represents
+            hope through sustainable practices. Together, we must act to protect
+            our planet for future generations.
           </p>
-          <button className="border border-green-700 text-green-700 hover:bg-green-700 hover:text-white transition-all px-4 py-2 rounded-lg">
-            See our financial reports
-          </button>
         </div>
 
         {/* Donut Chart Section */}
+
         <div className="relative md:w-1/2 mt-10 md:mt-0 flex justify-center">
           <div className="w-64 h-64 relative">
             <div className="absolute inset-0 flex items-center justify-center">
               <span className="text-3xl font-bold text-green-700">
-                €2,294,182
+                Warning!!
               </span>
             </div>
+
             <svg viewBox="0 0 36 36" className="w-full h-full">
               {/* Background Circle */}
               <circle

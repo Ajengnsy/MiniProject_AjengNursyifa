@@ -1,5 +1,5 @@
 // src/Chat.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import generateContent from "./GoogleGenerativeAi";
 
 const ChatBot = () => {
@@ -7,16 +7,27 @@ const ChatBot = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  // Menambahkan pesan pembuka saat komponen pertama kali di-render
+  useEffect(() => {
+    const initialMessage = {
+      sender: "ai",
+      text: "Hallo, saya bisa membantu kamu menjawab pertanyaan mengenai cara menjaga lingkungan agar bumi bisa menjadi Green Earth 🌍. Silahkan ajukan pertanyaanmu!",
+    };
+    setChatHistory([initialMessage]);
+  }, []);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
 
+    // Menambahkan pesan dari user ke chat history
     const newChatHistory = [
       ...chatHistory,
       { sender: "user", text: userInput },
     ];
     setChatHistory(newChatHistory);
 
+    // Mendapatkan respons dari AI
     const aiResponse = await generateContent(userInput);
     if (aiResponse) {
       setChatHistory([...newChatHistory, { sender: "ai", text: aiResponse }]);

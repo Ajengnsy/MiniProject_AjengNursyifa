@@ -7,9 +7,9 @@ const Footer = () => {
       <div className="flex flex-col md:flex-row justify-between">
         {/* Left Section */}
         <div className="md:w-1/3 mb-6 md:mb-0">
-          <h2 className="text-3xl font-bold mb-4">Ajeng Website</h2>
+          <h2 className="text-3xl font-bold mb-4">Green Earth</h2>
           <p className="mb-4">
-            Your one-stop shop for the best makeup and skincare products.
+            Explore tips and solutions to help protect our planet.🌿
           </p>
           <div className="flex">
             <input
@@ -52,11 +52,14 @@ const Footer = () => {
 
         {/* Middle Section */}
         <div className="md:w-1/3 mb-6 md:mb-0">
-          <h3 className="text-lg font-bold">Quality Makeup & Skincare</h3>
-          <h4 className="text-md font-semibold">Enhance Your Natural Beauty</h4>
+          <h3 className="text-lg font-bold">Green Earth Initiatives</h3>
+          <h4 className="text-md font-semibold">
+            Preserve Our Planet for Future Generations
+          </h4>
           <p className="mt-2">
-            We offer a wide range of high-quality makeup and skincare products
-            to help you look and feel your best. Explore our collection today!
+            We provide a wide range of eco-friendly tips and sustainable
+            solutions to help you make a positive impact on the environment.
+            Join us in creating a greener, cleaner Earth today! 🌍
           </p>
           <a
             href="#"
@@ -68,15 +71,11 @@ const Footer = () => {
 
         {/* Right Section */}
         <div className="md:w-1/6">
-          <h3 className="text-lg font-bold">Come Say Hello!</h3>
-          <p>
-            Bandar Lampung
-            <br />
-            Kedaton
-            <br />
-            Samping Mall Boemi Kedaton
+          <h3 className="text-lg font-bold">Green Earth Hub</h3>
+          <p>Bandar Lampung, Kedaton Next to Mall Boemi Kedaton</p>
+          <p className="mt-2">
+            Contact us via WhatsApp or call: 089523088851 📞
           </p>
-          <p className="mt-2">089523088851 wa/call</p>
           <button className="bg-green-500 text-white p-2 rounded-md mt-4 hover:bg-green-600 transition duration-200">
             Contact
           </button>

@@ -8,47 +8,47 @@ const About = () => {
     {
       id: 1,
       imageUrl: "/img/pohon1.png", // Replace with your image path
-      title: "Make the switch to Ecosia",
-      description: "Join the Ecosia community",
-      text: "Make Ecosia your default search engine to be climate active every day (for free!)",
+      title: "Protecting the Environment",
+      description: "It's easy to do, just take action!.",
+      text: "Protecting the environment is a shared responsibility that is crucial for the future of our planet. By taking simple actions like reducing plastic use, recycling waste, planting trees, and conserving energy, we can minimize our negative impact on nature.",
     },
     {
       id: 2,
       imageUrl: "/img/pohon2.png", // Replace with your image path
-      title: "Support Reforestation",
-      description: "Join the movement",
-      text: "Every search helps plant trees and restore nature.",
+      title: "The Consequences of Not Protecting the Environment",
+      description: "It's easy to ignore, but the damage is lasting.",
+      text: "Failing to take care of the environment can lead to severe consequences for our planet's future. Ignoring simple actions like reducing plastic use, recycling waste, planting trees, and conserving energy can increase pollution, deplete natural resources, and harm ecosystems. ",
     },
     {
       id: 3,
       imageUrl: "/img/pohon3.png", // Replace with your image path
-      title: "Make a Difference",
-      description: "Be part of the change",
-      text: "Your searches can help create a greener planet.",
+      title: "Let's Build a Green Earth Together",
+      description: "It's easy to make a difference—just take action!",
+      text: "Protecting the environment is a shared responsibility that is essential for the future of our planet. Together, we can create a healthier, greener Earth by taking simple steps like reducing plastic use, recycling waste, planting trees, and conserving energy.",
     },
   ];
 
   // Card data
   const cards = [
     {
-      image: "/img/Sampah.jpg",
-      title: "Brazil",
+      image: "/img/air1.jpg",
+      title: "Saving Water",
       description:
-        "Planting projects in Brazil protect thousands of endangered plants and animals.",
+        "Water conservation projects save thousands of liters daily, protecting vital resources for future generations.",
       bgColor: "bg-yellow-300",
     },
     {
-      image: "/img/pohon2.png",
-      title: "Senegal",
+      image: "/img/hematenergi.jpg",
+      title: "Saving Energy",
       description:
-        "Planting trees in Senegal helps restore desertified land to its former fertility.",
+        "Energy conservation efforts save thousands of kilowatt-hours daily, preserving vital resources for future generations.",
       bgColor: "bg-pink-200",
     },
     {
-      image: "/img/pohon3.png",
-      title: "Indonesia",
+      image: "/img/hewan.jpeg",
+      title: "Saving Wildlife",
       description:
-        "In Indonesia, we help restore forests on former palm oil plantations while creating alternative sources of income.",
+        "Wildlife conservation efforts protect thousands of species daily, ensuring biodiversity and preserving ecosystems for future generations.",
       bgColor: "bg-green-300",
     },
   ];
