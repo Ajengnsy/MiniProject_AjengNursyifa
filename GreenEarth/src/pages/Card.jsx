@@ -22,6 +22,27 @@ const cards = [
       "Wildlife conservation efforts protect thousands of species daily, ensuring biodiversity and preserving ecosystems for future generations.",
     bgColor: "bg-green-300",
   },
+  {
+    image: "/img/kendaraanumum.jpeg", // Add a new image path
+    title: "Using Public Transportation",
+    description:
+      "Public transportation initiatives reduce carbon emissions significantly every day, promoting cleaner air and conserving resources for a greener future.",
+    bgColor: "bg-blue-200",
+  },
+  {
+    image: "/img/daurulang.jpg", // Add a new image path
+    title: "Reduce, Reuse, Recycle",
+    description:
+      "Practicing reduce, reuse, recycle minimizes waste and conserves natural resources daily, helping to protect the environment and ensure a sustainable future for generations to come.",
+    bgColor: "bg-orange-300",
+  },
+  {
+    image: "/img/kebunsayur.jpg", // Add a new image path
+    title: "Home Gardening",
+    description:
+      "Growing your own garden at home enriches the soil, reduces carbon footprint, and provides fresh produce daily, promoting a healthier environment and a sustainable way of living for future generations.",
+    bgColor: "bg-red-300",
+  },
 ];
 
 const Card = () => {
