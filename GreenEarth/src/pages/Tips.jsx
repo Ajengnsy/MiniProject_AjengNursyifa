@@ -1,34 +1,30 @@
 // src/TipsList.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-// Dummy data tips
-const initialTipsData = [
-  {
-    id: 1,
-    title: "Reduce Plastic Use",
-    description: "Avoid single-use plastics",
-  },
-  { id: 2, title: "Save Water", description: "Take shorter showers" },
-  {
-    id: 3,
-    title: "Recycle Properly",
-    description: "Separate recyclables from waste",
-  },
-  {
-    id: 4,
-    title: "Use Energy Efficient Appliances",
-    description: "Save energy and reduce bills",
-  },
-  { id: 5, title: "Plant Trees", description: "Help combat climate change" },
-];
+// URL MockAPI
+const apiUrl = "https://67341711a042ab85d118d9fc.mockapi.io/Tips";
 
 const TipsList = ({ isLoggedIn }) => {
-  const [tips, setTips] = useState(initialTipsData);
+  const [tips, setTips] = useState([]);
   const [editingTip, setEditingTip] = useState(null);
   const [editedTitle, setEditedTitle] = useState("");
   const [editedDescription, setEditedDescription] = useState("");
   const [newTipTitle, setNewTipTitle] = useState("");
   const [newTipDescription, setNewTipDescription] = useState("");
+
+  // Fetch data dari MockAPI
+  useEffect(() => {
+    const fetchTips = async () => {
+      try {
+        const response = await axios.get(apiUrl);
+        setTips(response.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchTips();
+  }, []);
 
   const handleEdit = (tip) => {
     setEditingTip(tip.id);
@@ -36,30 +32,44 @@ const TipsList = ({ isLoggedIn }) => {
     setEditedDescription(tip.description);
   };
 
-  const handleSave = (id) => {
-    setTips(
-      tips.map((tip) =>
-        tip.id === id
-          ? { ...tip, title: editedTitle, description: editedDescription }
-          : tip
-      )
-    );
-    setEditingTip(null);
+  const handleSave = async (id) => {
+    const updatedTip = {
+      title: editedTitle,
+      description: editedDescription,
+    };
+    try {
+      await axios.put(`${apiUrl}/${id}`, updatedTip);
+      setTips(
+        tips.map((tip) => (tip.id === id ? { ...tip, ...updatedTip } : tip))
+      );
+      setEditingTip(null);
+    } catch (error) {
+      console.error("Error updating tip:", error);
+    }
   };
 
-  const handleDelete = (id) => {
-    setTips(tips.filter((tip) => tip.id !== id));
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`${apiUrl}/${id}`);
+      setTips(tips.filter((tip) => tip.id !== id));
+    } catch (error) {
+      console.error("Error deleting tip:", error);
+    }
   };
 
-  const handleAddTip = () => {
+  const handleAddTip = async () => {
     const newTip = {
-      id: tips.length + 1, // Generate a new ID based on the current length
       title: newTipTitle,
       description: newTipDescription,
     };
-    setTips([...tips, newTip]);
-    setNewTipTitle("");
-    setNewTipDescription("");
+    try {
+      const response = await axios.post(apiUrl, newTip);
+      setTips([...tips, response.data]);
+      setNewTipTitle("");
+      setNewTipDescription("");
+    } catch (error) {
+      console.error("Error adding tip:", error);
+    }
   };
 
   return (
@@ -97,12 +107,14 @@ const TipsList = ({ isLoggedIn }) => {
       )}
 
       <div className="flex justify-between w-full max-w-6xl items-start">
+        {/* Gambar di sisi kiri */}
         <img
           src="/img/tree.png"
           alt="Tree"
           className="h-48 w-1/5 object-cover"
         />
 
+        {/* Tabel Tips */}
         <div className="flex-grow mx-4">
           <div className="overflow-x-auto">
             <table className="min-w-full divide-y divide-gray-200">
@@ -156,21 +168,21 @@ const TipsList = ({ isLoggedIn }) => {
                         {editingTip === tip.id ? (
                           <button
                             onClick={() => handleSave(tip.id)}
-                            className="px-3 py-1 bg-green-500 text-white rounded-md hover:bg-green-600"
+                            className="bg-green-500 text-white rounded-md px-3 py-1 hover:bg-green-600"
                           >
                             Save
                           </button>
                         ) : (
                           <button
                             onClick={() => handleEdit(tip)}
-                            className="px-3 py-1 text-blue-600 hover:text-blue-800"
+                            className="text-blue-600 hover:text-blue-800"
                           >
                             Edit
                           </button>
                         )}
                         <button
                           onClick={() => handleDelete(tip.id)}
-                          className="px-3 py-1 text-red-600 hover:text-red-800"
+                          className="text-red-600 hover:text-red-800"
                         >
                           Delete
                         </button>
@@ -183,9 +195,10 @@ const TipsList = ({ isLoggedIn }) => {
           </div>
         </div>
 
+        {/* Gambar di sisi kanan */}
         <img
           src="/img/bumi1.jpg"
-          alt="Tree"
+          alt="Earth"
           className="h-48 w-1/5 object-cover"
         />
       </div>

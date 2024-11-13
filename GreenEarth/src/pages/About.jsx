@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Card from "./Card";
 
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -9,7 +10,7 @@ const About = () => {
       id: 1,
       imageUrl: "/img/pohon1.png", // Replace with your image path
       title: "Protecting the Environment",
-      description: "It's easy to do, just take action!.",
+      description: "It's easy to do, just take action!",
       text: "Protecting the environment is a shared responsibility that is crucial for the future of our planet. By taking simple actions like reducing plastic use, recycling waste, planting trees, and conserving energy, we can minimize our negative impact on nature.",
     },
     {
@@ -17,7 +18,7 @@ const About = () => {
       imageUrl: "/img/pohon2.png", // Replace with your image path
       title: "The Consequences of Not Protecting the Environment",
       description: "It's easy to ignore, but the damage is lasting.",
-      text: "Failing to take care of the environment can lead to severe consequences for our planet's future. Ignoring simple actions like reducing plastic use, recycling waste, planting trees, and conserving energy can increase pollution, deplete natural resources, and harm ecosystems. ",
+      text: "Failing to take care of the environment can lead to severe consequences for our planet's future. Ignoring simple actions like reducing plastic use, recycling waste, planting trees, and conserving energy can increase pollution, deplete natural resources, and harm ecosystems.",
     },
     {
       id: 3,
@@ -25,31 +26,6 @@ const About = () => {
       title: "Let's Build a Green Earth Together",
       description: "It's easy to make a difference—just take action!",
       text: "Protecting the environment is a shared responsibility that is essential for the future of our planet. Together, we can create a healthier, greener Earth by taking simple steps like reducing plastic use, recycling waste, planting trees, and conserving energy.",
-    },
-  ];
-
-  // Card data
-  const cards = [
-    {
-      image: "/img/air1.jpg",
-      title: "Saving Water",
-      description:
-        "Water conservation projects save thousands of liters daily, protecting vital resources for future generations.",
-      bgColor: "bg-yellow-300",
-    },
-    {
-      image: "/img/hematenergi.jpg",
-      title: "Saving Energy",
-      description:
-        "Energy conservation efforts save thousands of kilowatt-hours daily, preserving vital resources for future generations.",
-      bgColor: "bg-pink-200",
-    },
-    {
-      image: "/img/hewan.jpeg",
-      title: "Saving Wildlife",
-      description:
-        "Wildlife conservation efforts protect thousands of species daily, ensuring biodiversity and preserving ecosystems for future generations.",
-      bgColor: "bg-green-300",
     },
   ];
 
@@ -124,26 +100,8 @@ const About = () => {
           </div>
         </div>
       </div>
-
-      {/* Cards Section */}
-      <div className="container mx-auto mt-5 grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className={`rounded-xl overflow-hidden shadow-lg ${card.bgColor}`}
-          >
-            <img
-              src={card.image}
-              alt={card.title}
-              className="w-full h-52 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-lg font-bold mb-2">{card.title}</h3>
-              <p className="text-gray-700">{card.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
+      {/* Menambahkan Card */}
+      <Card />
     </section>
   );
 };
