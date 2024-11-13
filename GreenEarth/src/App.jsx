@@ -7,6 +7,7 @@ import About from "./pages/About";
 import TipsList from "./pages/Tips";
 import ChatBot from "./pages/ChatBot";
 import Footer from "./components/Footer";
+import Questions from "./pages/Questions";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(
@@ -24,6 +25,7 @@ const App = () => {
               <Home />
               <About />
               <TipsList isLoggedIn={isLoggedIn} />
+              <Questions />
             </>
           }
         />
