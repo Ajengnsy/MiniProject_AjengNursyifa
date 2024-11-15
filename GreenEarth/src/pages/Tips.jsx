@@ -80,7 +80,7 @@ const TipsList = ({ isLoggedIn }) => {
 
       {isLoggedIn && (
         <div className="mb-10 w-full max-w-lg">
-          <h3 className="text-2xl font-semibold mb-4">Add a New Tip</h3>
+          <h3 className="text-2xl font-semibold mb-4">Add a New Tips</h3>
           <div className="flex flex-col md:flex-row gap-4">
             <input
               type="text"
