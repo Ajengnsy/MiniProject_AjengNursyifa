@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./index.css";
 import Header from "./components/Header";
-import Home from "./pages/home";
+import Home from "./pages/Home";
 import About from "./pages/About";
 import TipsList from "./pages/Tips";
 import ChatBot from "./pages/ChatBot";
