@@ -1,6 +1,8 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
-const genAI = new GoogleGenerativeAI("AIzaSyDZuaM44G4o8ktbEYomXQLZ8Ii4HDIPvtQ");
+// Use the environment variable from Vite
+const apiKey = import.meta.env.VITE_GOOGLE_GEN_AI_KEY;
+const genAI = new GoogleGenerativeAI(apiKey);
 
 const generateContent = async (prompt) => {
   try {
