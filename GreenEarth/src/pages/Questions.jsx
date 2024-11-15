@@ -18,13 +18,13 @@ const Questions = () => {
       title: "Collective Action",
       description:
         "The Green Earth community is the world’s largest tree-planting movement, making a difference every day.",
-      icon: "👥", // You can replace this with an actual image or SVG
+      icon: "👥",
     },
     {
       title: "Beyond Carbon Neutral",
       description:
         "Our solar panels generate enough energy to power our operations, surpassing the energy needed for your searches, contributing to more renewable energy and fewer fossil fuels in the energy grid.",
-      icon: "☀️", // You can replace this with an actual image or SVG
+      icon: "☀️",
     },
   ];
 
