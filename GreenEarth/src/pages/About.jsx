@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
+import Artikel from "./Artikel";
 
 const About = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -101,6 +102,7 @@ const About = () => {
         </div>
       </div>
       {/* Menambahkan Card */}
+      <Artikel />
       <Card />
     </section>
   );
