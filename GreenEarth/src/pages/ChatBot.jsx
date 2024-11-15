@@ -11,7 +11,7 @@ const ChatBot = () => {
   useEffect(() => {
     const initialMessage = {
       sender: "ai",
-      text: "Hallo, saya bisa membantu kamu menjawab pertanyaan mengenai cara menjaga lingkungan agar bumi bisa menjadi Green Earth 🌍. Silahkan ajukan pertanyaanmu!",
+      text: "Hello, I can help you answer questions about how to protect the environment so that the earth can become Green Earth 🌍. Feel free to ask your questions!",
     };
     setChatHistory([initialMessage]);
   }, []);
