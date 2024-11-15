@@ -70,7 +70,7 @@ const ChatBot = () => {
           onChange={(e) => setUserInput(e.target.value)}
           placeholder="Type your message here..."
           required
-          className="w-full h-20 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full h-20 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
         />
         <button
           type="submit"
