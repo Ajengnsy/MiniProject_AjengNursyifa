@@ -1,4 +1,5 @@
 // src/Chat.jsx
+
 import React, { useState, useEffect } from "react";
 import generateContent from "./GoogleGenerativeAi";
 
@@ -11,7 +12,7 @@ const ChatBot = () => {
   useEffect(() => {
     const initialMessage = {
       sender: "ai",
-      text: "Hallo, saya bisa membantu kamu menjawab pertanyaan mengenai cara menjaga lingkungan agar bumi bisa menjadi Green Earth 🌍. Silahkan ajukan pertanyaanmu!",
+      text: "Halo, saya bisa membantu Anda menjawab pertanyaan tentang cara menjaga lingkungan agar bumi menjadi lebih hijau 🌍. Silakan ajukan pertanyaan Anda!",
     };
     setChatHistory([initialMessage]);
   }, []);
@@ -27,14 +28,31 @@ const ChatBot = () => {
     ];
     setChatHistory(newChatHistory);
 
-    // Mendapatkan respons dari AI
-    const aiResponse = await generateContent(userInput);
-    if (aiResponse) {
-      setChatHistory([...newChatHistory, { sender: "ai", text: aiResponse }]);
+    // Memeriksa apakah pertanyaan relevan dengan menjaga lingkungan
+    const isRelevant =
+      userInput.toLowerCase().includes("lingkungan") ||
+      userInput.toLowerCase().includes("menjaga");
+
+    if (isRelevant) {
+      // Menggunakan prompt yang dibatasi untuk menjaga lingkungan
+      const prompt = `Tolong berikan respons yang terperinci tentang cara menjaga lingkungan dan dampak jika tidak menjaga lingkungan berdasarkan pertanyaan berikut: ${userInput}`;
+      const aiResponse = await generateContent(prompt);
+
+      // Merapikan respons
+      const formattedResponse = aiResponse
+        ? aiResponse
+        : "Error: Unable to get response.";
+      setChatHistory([
+        ...newChatHistory,
+        { sender: "ai", text: formattedResponse },
+      ]);
     } else {
       setChatHistory([
         ...newChatHistory,
-        { sender: "ai", text: "Error: Unable to get response." },
+        {
+          sender: "ai",
+          text: "Maaf, saya hanya dapat menjawab pertanyaan tentang cara menjaga lingkungan.",
+        },
       ]);
     }
 
@@ -58,7 +76,7 @@ const ChatBot = () => {
                 message.sender === "user" ? "text-blue-600" : "text-green-600"
               }`}
             >
-              {message.sender === "user" ? "You" : "AI"}:
+              {message.sender === "user" ? "Anda" : "AI"}:
             </span>
             <span className="ml-2">{message.text}</span>
           </div>
@@ -68,16 +86,16 @@ const ChatBot = () => {
         <textarea
           value={userInput}
           onChange={(e) => setUserInput(e.target.value)}
-          placeholder="Type your message here..."
+          placeholder="Ketik pesan Anda di sini..."
           required
-          className="w-full h-20 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="w-full h-20 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
         />
         <button
           type="submit"
           disabled={loading}
           className="mt-2 w-full p-2 bg-green-500 text-white rounded-lg hover:bg-green-600 disabled:bg-green-300"
         >
-          {loading ? "Sending..." : "Send"}
+          {loading ? "Mengirim..." : "Kirim"}
         </button>
       </form>
     </div>
